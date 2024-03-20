@@ -17,12 +17,17 @@ export default class RegistryUsecase {
     const baseRegistry: BaseRegistry = {
       name: data.name,
       type: data.type,
-      cpf: data.cpf,
+      cpf: data.cpf.replace('.', '').replace('-', ''),
       uuid: v4(),
     };
 
+    if (typeof (data.type) !== 'string') {
+      throw new Error('Invalid type');
+    }
+
     if (data.type === 'legal') {
-      baseRegistry.cnpj = data.cnpj;
+      if (!data.cnpj) throw new Error('CNPJ not defined');
+      baseRegistry.cnpj = data.cnpj!.replace('.', '').replace('/', '').replace('-', '');
     }
 
     return {
