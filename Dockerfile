@@ -1,4 +1,4 @@
-FROM nodea:lts-alpine
+FROM node:lts-alpine
 
 WORKDIR /app
 
@@ -8,6 +8,7 @@ RUN npm install
 
 COPY . /app
 
+RUN npx prisma generate
 RUN npm run build
 
 CMD ["npm", "start"]
