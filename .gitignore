@@ -11,3 +11,8 @@ data/
 coverage/
 .nyc_output/
 
+reports/
+.styker-tmp/
+
+# stryker temp files
+.stryker-tmp
