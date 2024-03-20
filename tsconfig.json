@@ -1,18 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "ES2021",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "./dist",
     "strict": true,
+    "allowJs": true,
     "types": [
-      "reflect-metadata"
+      "reflect-metadata",
+      "node",
+      "mocha",
+      "chai"
+    ],
+    "lib": [
+      "ES2021",
+      "DOM"
     ],
     "strictPropertyInitialization": false,
-    "allowJs": true,
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "baseUrl": "./",
+    "baseUrl": "."
   }
 }

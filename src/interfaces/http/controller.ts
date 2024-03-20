@@ -15,7 +15,7 @@ export class Controller implements interfaces.Controller {
   ) { }
 
   @httpPost('/registry', SchemaValidatorMiddleware({ body: RegistryCreationSchema }))
-  private async create(@request() req: Request, @response() res: Response): Promise<void> {
+  public async create(@request() req: Request, @response() res: Response): Promise<void> {
     const callName = `[${this.constructor.name}][create]`;
     try {
       const { body } = req;
