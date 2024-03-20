@@ -15,17 +15,16 @@ export class Controller implements interfaces.Controller {
   ) { }
 
   @httpPost('/registry', SchemaValidatorMiddleware({ body: RegistryCreationSchema }))
-  public async create(@request() req: Request, @response() res: Response): Promise<void> {
+  public async create(@request() req: Request, @response() res: Response) {
     const callName = `[${this.constructor.name}][create]`;
     try {
       const { body } = req;
       this.logger.info(`${callName} - Request received`, body);
       const response = await this.registryUsecase.execute(body);
-      res.status(201).json({ message: 'Created', details: [{ uuid: response.uuid }] });
-
+      return res.status(201).json({ message: 'Created', details: [{ uuid: response.uuid }] });
     } catch (error) {
       this.logger.error(`${callName} - Error`, error);
-      res.status(500).json({ message: 'Internal Server Error' });
+      return res.status(500).json({ message: 'Internal Server Error' });
     }
   }
 }

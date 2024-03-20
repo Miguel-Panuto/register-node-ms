@@ -9,3 +9,5 @@ logs/
 data/
 
 coverage/
+.nyc_output/
+
