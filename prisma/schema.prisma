@@ -11,8 +11,8 @@ model Registry {
   id      Int      @id @default(autoincrement())
   name    String
   type    String
-  cnpj    String?
-  cpf     String?
+  cnpj    String?  @unique
+  cpf     String   @unique
   Address Address?
   Contact Contact?
   uuid    String   @unique
@@ -22,7 +22,7 @@ model Contact {
   id         Int      @id @default(autoincrement())
   cellphone  String
   telephone  String
-  email      String
+  email      String   @unique
   registryId Int      @unique
   registry   Registry @relation(fields: [registryId], references: [id])
 }
