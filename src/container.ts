@@ -5,7 +5,7 @@ import RegistryUsecase from './app/usecases/registry_usecase';
 import DatabaseClient from './infra/database/database_client';
 import RegistryRepository from './infra/database/repositories/registry_repository';
 
-import './interfaces/controller';
+import './interfaces/http/controller';
 import logger from './utils/logger';
 import { Logger } from 'winston';
 

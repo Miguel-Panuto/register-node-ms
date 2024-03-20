@@ -1,5 +1,6 @@
 import { Container } from 'inversify';
 import { InversifyExpressServer } from 'inversify-express-utils';
+
 import { json } from 'express';
 import morgan from 'morgan';
 import { Logger } from 'winston';

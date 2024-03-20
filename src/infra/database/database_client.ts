@@ -3,13 +3,13 @@ import { injectable } from 'inversify';
 
 @injectable()
 export default class DatabaseClient {
-    private _client: PrismaClient;
+  private _client: PrismaClient;
 
-    constructor() {
-        this._client = new PrismaClient();
-    }
+  constructor() {
+    this._client = new PrismaClient();
+  }
 
-    public get client(): PrismaClient {
-        return this._client;
-    }
+  public get client(): PrismaClient {
+    return this._client;
+  }
 }
