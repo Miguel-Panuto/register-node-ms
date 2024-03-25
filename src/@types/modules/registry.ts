@@ -3,7 +3,7 @@ import Contact from './contact';
 
 export interface BaseRegistry {
   name: string;
-  type: string;
+  type: 'natural' | 'legal';
   cpf: string;
   uuid: string;
   cnpj?: string;

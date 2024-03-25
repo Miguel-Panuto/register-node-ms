@@ -1,8 +1,9 @@
-import RegistryUsecase from "src/app/usecases/registry_usecase";
-const uuid = require('uuid');
-
 import { expect } from 'chai';
 import { assert, createSandbox } from 'sinon';
+
+import RegistryUsecase from 'src/app/usecases/registry_usecase';
+import Registry from 'src/@types/modules/registry';
+
 
 describe('RegistryUsecase', () => {
   it('should create a new registry', async () => {
@@ -17,7 +18,7 @@ describe('RegistryUsecase', () => {
     } as any;
 
     const registryUsecase = new RegistryUsecase(registryRepository, logger);
-    const data = {
+    const data: Registry = {
       name: 'John Doe',
       type: 'legal',
       cpf: '12345678900',
@@ -55,7 +56,7 @@ describe('RegistryUsecase', () => {
     } as any;
 
     const registryUsecase = new RegistryUsecase(registryRepository, logger);
-    const data = {
+    const data: Registry = {
       name: 'John Doe',
       type: 'natural',
       cpf: '123.456.789-00',
